@@ -13,11 +13,12 @@
   "lint:fix": "eslint . --ext .js --fix",
   "ci": "npm run lint && npm run test:coverage"  
 },
+
 "c8": {
-  "branches": 100, 
-  "lines": 100,    
-  "functions": 100,
-  "statements": 100
+    "branches": 100, 
+    "lines": 100,    
+    "functions": 100,
+    "statements": 100
 },
   "repository": {
     "type": "git",
