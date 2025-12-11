@@ -1,22 +1,27 @@
-// app.js
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000; // Use environment variable for port
+import express from 'express';
+import { MESSAGES } from './constants.js';
 
-// Simple root endpoint
-app.get('/', (req, res) => {
-  res.status(200).send('Hello DevOps Lab!');
+const app = express();app.get('/', (req, res) => {
+  res.send(MESSAGES.GREETING);
 });
 
-// Health Check Endpoint (Crucial for CI/CD verification)
+// Health check endpoint for deployment platforms
 app.get('/health', (req, res) => {
-  res.status(200).send({ status: 'ok' });
+  res.status(200).json({
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
+  });
 });
 
-// The server listener is outside the main app export for testability
-const server = app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
+// Add a simple API endpoint for better test coverage
+app.get('/api/info', (req, res) => {
+  res.json({
+    name: 'CI/CD Lab App',
+    version: '1.0.0',
+    environment: process.env.NODE_ENV || 'development'
+  });
 });
 
-// Export the app for testing
-module.exports = app;
+export default app;
