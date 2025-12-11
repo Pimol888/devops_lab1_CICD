@@ -1,0 +1,54 @@
+{
+  "name": "pimol_oem_lab1_ci_cd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+
+  "scripts": {
+    "start": "node app.js",
+    "lint": "eslint .",
+    "test": "mocha test/*.test.js",
+    "coverage": "c8 npm run test",
+    "ci": "npm run lint && npm run coverage"
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "test/**",
+      "*.config.js",
+      "package.json",
+      "package-lock.json",
+      "node_modules"
+    ],
+    "check-coverage": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pimol888/devops_lab1_CICD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Pimol888/devops_lab1_CICD/issues"
+  },
+  "homepage": "https://github.com/Pimol888/devops_lab1_CICD#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "c8": "^10.1.3",
+    "chai": "^6.2.1",
+    "eslint": "^9.39.1",
+    "mocha": "^11.7.5",
+    "supertest": "^7.1.4"
+  }
+}
