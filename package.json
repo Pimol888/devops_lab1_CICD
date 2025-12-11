@@ -4,36 +4,21 @@
   "description": "",
   "main": "server.js",
   "type": "module",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
-    "test": "mocha --exit",
-    "test:coverage": "c8 mocha --exit",
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix"
-  },
-  "c8": {
-
-    "exclude": [
-      "test/**",
-      "coverage/**",
-      ".github/**",
-      "eslint.config.js",
-      "server.js",
-      "index.js"
-    ],
-    "reporter": [
-      "html",
-      "text",
-      "lcov"
-    ],
-    "all": true,
-    "check-coverage": true,
-    "branches": 80,
-    "lines": 80,
-    "functions": 80,
-    "statements": 80
-  },
+"scripts": {
+  "start": "node server.js",
+  "dev": "node --watch server.js",
+  "test": "mocha --exit",
+  "test:coverage": "c8 mocha --exit",
+  "lint": "eslint . --ext .js",
+  "lint:fix": "eslint . --ext .js --fix",
+  "ci": "npm run lint && npm run test:coverage"  
+},
+"c8": {
+  "branches": 100, 
+  "lines": 100,    
+  "functions": 100,
+  "statements": 100
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Soksan369/soksan-phork-lab1.git"
@@ -41,7 +26,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  
+
   "bugs": {
     "url": "https://github.com/Soksan369/soksan-phork-lab1/issues"
   },
