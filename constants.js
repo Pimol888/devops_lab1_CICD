@@ -1,3 +1,3 @@
 export const MESSAGES = {
-  GREETING: 'Hello, I am CI/CD!'
+  GREETING: 'Hello from Pimol, here is the successful CI/CD pipeline!'
 };
